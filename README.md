@@ -10,3 +10,5 @@ allows two modes of operation: admin and user.
     
   o User mode: provides features such as viewing patient 
     records and today's reservations
+    
+The system also manages the available slots for the doctor and ensures that the patient IDs are unique.
