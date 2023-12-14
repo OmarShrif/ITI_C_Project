@@ -6,7 +6,7 @@ allows two modes of operation: admin and user.
 
   o Admin mode: requires a password and provides 
     features such as adding, editing, reserving, and 
-    canceling patient records. 
+    canceling patient records.    << Defult Password : 1234 >>
     
   o User mode: provides features such as viewing patient 
     records and today's reservations
