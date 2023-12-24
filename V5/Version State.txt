@@ -1,0 +1,10 @@
+5th Version for the clinic system   << Defult Password : 1234 >>
+
+.Fixed RemovePatient Function 
+.Added ClearTheClinic Function 
+.Added DestroyAllData Function 
+.Added admin_Display_PatientList Function 
+
+
+Issues :
+.Can't handel wrong entres

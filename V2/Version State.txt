@@ -1,0 +1,10 @@
+2nd Version for the clinic system   << Defult Password : 1234 >>
+
+.Chanded the layout 
+.Added RemovePatient Function
+
+Issues :
+.When adding a patient can't add it with white space
+.When changing a patient name can't use white space
+.Function RemovePatient not completed (deletes only "Head & Tail")
+.Can't handel wrong entres

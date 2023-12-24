@@ -1,0 +1,17 @@
+1st Version for the clinic system with all it's functionality   << Defult Password : 1234 >>
+
+.Admin Mode : <<Admin : A clinic worker/doctor>>
+	.Enter with password
+	.Add Patient
+	.Edit Patient
+	.Reserve Slot in the clinic
+	.Cancel Reservation
+.User Mode : User: A Patient or one want to know information>>
+	.View Patient record
+	.View clinic record list
+
+Issues :
+.When adding a patient can't add it with white space
+.Can't delet patient record
+.When changing a patient name can't use white space
+.Can't handel wrong entres

@@ -1,0 +1,4 @@
+1th Version for the Multi Clinic System   << Defult Password : 1234 >>
+
+.Upgraded the functions of the Clinic Management Systems to be portable to create Multi Clinics Systems
+.can handel wrong entres

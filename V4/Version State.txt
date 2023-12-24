@@ -1,0 +1,8 @@
+4th Version for the clinic system   << Defult Password : 1234 >>
+
+.Stor the runtime history of the system
+
+
+Issues :
+.Can't handel wrong entres
+.Function RemovePatient not completed (deletes only "Head & Tail")

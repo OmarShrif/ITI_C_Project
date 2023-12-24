@@ -1,0 +1,5 @@
+2nd Version for the Multi Clinic System   << Defult Password : 1234 >>
+
+.More handeling for wrong entres.
+.Adding admin_ViewTodaysReservation function.
+.Changing user_ViewTodaysReservation function to user_ViewAvailableSlots function.

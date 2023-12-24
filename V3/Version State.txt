@@ -1,0 +1,7 @@
+3rd Version for the clinic system  << Defult Password : 1234 >>
+
+.Can enter a name with white space sparation
+
+Issues :
+.Can't handel wrong entres
+.Function RemovePatient not completed (deletes only "Head & Tail")
