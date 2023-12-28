@@ -3,7 +3,7 @@
   * @file           : ClinicList.c                                                              *
   * @author         : Omar Shrif Mohamed                                                        *
   * @details        : Contains the list of functions provided in each mode                      *
-  * @date           : 15/12/2023                                                                *
+  * @date           : 28/12/2023                                                                *
   ***********************************************************************************************
   */
 
@@ -35,10 +35,26 @@ static u8 gender_Entry_validation(FILE *my_file);
 
 void admin_AddPatient(clinic *my_clinic,FILE *my_file)
 {
-	s32 Id = 0;
+	//s32 Id = Id_Entry_validation(my_file);
+
+    s32 Id = 0 ;
+
+    Id2:
+
+    fflush(stdin);
 	printf("Enter patient id : ");
-	scanf("%d",&Id);
+	scanf("%s",&Id);
+    Id = atoi(&Id);
 	fprintf(my_file,"Enter patient id : %i\n",Id);
+    if(!Id)
+    {
+        printf("\nUnaccepted Id !!\n\n");
+        fprintf(my_file,"\nUnaccepted Id !!\n\n");
+        goto Id2;
+    }
+    else
+    {/* Nothing */}
+
 	if(Not_Exist == CheckId(my_clinic,Id))
 	{
 		patient *NewPatient = (patient *)malloc(sizeof(patient));
@@ -94,10 +110,23 @@ void admin_AddPatient(clinic *my_clinic,FILE *my_file)
 
 void admin_RemovePatient(clinic *my_clinic,FILE *my_file)
 {
-	int Id = 0;
+    s32 Id = 0 ;
+
+    Id2:
+
+    fflush(stdin);
 	printf("Enter patient id : ");
-	scanf("%d",&Id);
-    fprintf(my_file,"Enter patient id : %i\n",Id);
+	scanf("%s",&Id);
+    Id = atoi(&Id);
+	fprintf(my_file,"Enter patient id : %i\n",Id);
+    if(!Id)
+    {
+        printf("\nUnaccepted Id !!\n\n");
+        fprintf(my_file,"\nUnaccepted Id !!\n\n");
+        goto Id2;
+    }
+    else {/* Nothing */}
+
 	if(Not_Exist != CheckId(my_clinic,Id))
 	{
 		Patient_Info(my_clinic,Id,my_file);
@@ -157,10 +186,23 @@ void admin_RemovePatient(clinic *my_clinic,FILE *my_file)
 
 void admin_EditPatient(clinic *my_clinic,FILE *my_file)
 {
-	s32 Id;
+    s32 Id = 0 ;
+
+    Id2:
+
+    fflush(stdin);
 	printf("Enter patient id : ");
-	scanf("%d",&Id);
-    fprintf(my_file,"Enter patient id : %i\n",Id);
+	scanf("%s",&Id);
+    Id = atoi(&Id);
+	fprintf(my_file,"Enter patient id : %i\n",Id);
+    if(!Id)
+    {
+        printf("\nUnaccepted Id !!\n\n");
+        fprintf(my_file,"\nUnaccepted Id !!\n\n");
+        goto Id2;
+    }
+    else {/* Nothing */}
+
 	if(Not_Exist != CheckId(my_clinic,Id))
 	{
 		Patient_Info(my_clinic,Id,my_file);
@@ -221,11 +263,24 @@ void admin_EditPatient(clinic *my_clinic,FILE *my_file)
 			}
 			else if(4 == Selection)
 			{
-				int ID;
-				printf("Enter patient id : ");
-				scanf("%d",&ID);
-				fprintf(my_file,"Enter patient id : %i\n",ID);
-				if(CheckId(my_clinic,ID) == Not_Exist)
+                s32 ID = 0 ;
+
+                Id3:
+
+                fflush(stdin);
+                printf("Enter patient id : ");
+                scanf("%s",&ID);
+                ID = atoi(&ID);
+                fprintf(my_file,"Enter patient id : %i\n",ID);
+                if(!ID)
+                {
+                    printf("\nUnaccepted Id !!\n\n");
+                    fprintf(my_file,"\nUnaccepted Id !!\n\n");
+                    goto Id3;
+                }
+                else {/* Nothing */}
+
+                if(CheckId(my_clinic,ID) == Not_Exist)
 				{
 					NewPatient->id=ID;
                     printf("\n");
@@ -260,10 +315,24 @@ void admin_EditPatient(clinic *my_clinic,FILE *my_file)
 
 void admin_ReserveSlot(clinic *my_clinic,FILE *my_file)
 {
-    int Id,Slot;
-    printf("Enter patient id : ");
-    scanf("%d",&Id);
-    fprintf(my_file,"Enter patient id : %i\n",Id);
+    s32 Slot;
+    s32 Id = 0 ;
+
+    Id2:
+
+    fflush(stdin);
+	printf("Enter patient id : ");
+	scanf("%s",&Id);
+    Id = atoi(&Id);
+	fprintf(my_file,"Enter patient id : %i\n",Id);
+    if(!Id)
+    {
+        printf("\nUnaccepted Id !!\n\n");
+        fprintf(my_file,"\nUnaccepted Id !!\n\n");
+        goto Id2;
+    }
+    else {/* Nothing */}
+
     if(Not_Exist != CheckId(my_clinic,Id))
     {
         patient *NewPatient = GetPatient(my_clinic,Id);
@@ -349,10 +418,23 @@ void admin_ReserveSlot(clinic *my_clinic,FILE *my_file)
 
 void admin_CancelReservation(clinic *my_clinic,FILE *my_file)
 {
-	int Id;
+    s32 Id = 0 ;
+
+    Id2:
+
+    fflush(stdin);
 	printf("Enter patient id : ");
-	scanf("%d",&Id);
-	fprintf(my_file,"Enter patient id : %d\n",Id);
+	scanf("%s",&Id);
+    Id = atoi(&Id);
+	fprintf(my_file,"Enter patient id : %i\n",Id);
+    if(!Id)
+    {
+        printf("\nUnaccepted Id !!\n\n");
+        fprintf(my_file,"\nUnaccepted Id !!\n\n");
+        goto Id2;
+    }
+    else {/* Nothing */}
+
 	if(Not_Exist != CheckId(my_clinic,Id))
 	{
         patient *NewPatient=GetPatient(my_clinic,Id);
@@ -365,8 +447,8 @@ void admin_CancelReservation(clinic *my_clinic,FILE *my_file)
         {
             slots[(NewPatient->slot)-1]--;
             NewPatient->slot=0;
-            printf("Reservation Canceled !!\n\n");
-            fprintf(my_file,"Reservation Canceled !!\n\n");
+            printf("\nReservation Canceled !!\n\n");
+            fprintf(my_file,"\nReservation Canceled !!\n\n");
         }
 	}
 	else
@@ -500,12 +582,27 @@ void admin_ViewTodayReservations(clinic *my_clinic,FILE *my_file)
 
 void user_ViewPatientRecord(clinic *my_clinic,FILE *my_file)
 {
-	int Id;
+    s32 Id = 0 ;
+
+    Id2:
+
+    fflush(stdin);
 	printf("Enter patient id : ");
-	scanf("%d",&Id);
+	scanf("%s",&Id);
+    Id = atoi(&Id);
 	fprintf(my_file,"Enter patient id : %i\n",Id);
+    if(!Id)
+    {
+        printf("\nUnaccepted Id !!\n\n");
+        fprintf(my_file,"\nUnaccepted Id !!\n\n");
+        goto Id2;
+    }
+    else {/* Nothing */}
+
 	if(Not_Exist != CheckId(my_clinic,Id))
+    {
 		Patient_Info(my_clinic,Id,my_file);
+    }
 	else
     {
 		printf("This id dosn't exist ,reject entry !!\n\n");
@@ -671,6 +768,7 @@ static void Patient_Info(clinic *my_clinic,int num,FILE *my_file)
 		}
 		current=current->next;
 	}
+	current = NULL;
 }
 
 static s32 Age_Entry_validation(FILE *my_file)
@@ -706,13 +804,22 @@ static u8 gender_Entry_validation(FILE *my_file)
     scanf("%c",&gender);
     printf("\n");
     fprintf(my_file,"Enter patient gender (m) for male , (f) for female: %c\n\n",gender);
-    if(gender != 'm' && gender != 'f')
+    if(gender != 'm' && gender != 'f' && gender != 'M' && gender != 'F')
     {
         printf("Unaccepted gender !!\n\n");
         fprintf(my_file,"Unaccepted gender !!\n\n");
         goto Gender;
     }
     else
-    {/* Nothing */}
+    {
+        if(gender == 'M')
+        {
+            gender = 'm';
+        }
+        else if(gender == 'F')
+        {
+            gender = 'f';
+        }
+    }
     return gender;
 }
